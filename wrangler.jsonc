@@ -1,0 +1,10 @@
+{
+	// Cloudflare Workers Static Assets: no Worker script, only the prerendered build (ADR 0002).
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "portfolio",
+	"compatibility_date": "2026-11-01",
+	"assets": {
+		"directory": "./build",
+		"not_found_handling": "404-page"
+	}
+}

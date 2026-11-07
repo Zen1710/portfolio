@@ -1,0 +1,3 @@
+# Konten Markdown di-render saat build
+
+Project, Build Log, dan About ditulis sebagai file `.md` dengan frontmatter di `content/`. Markdown-nya di-render jadi HTML di server load saat prerender, dan frontmatter divalidasi dengan schema Zod, jadi library Markdown dan schema tidak ikut terkirim ke browser. mdsvex tidak dipakai karena belum ada kebutuhan memakai komponen Svelte di dalam tulisan, dan membuat tiap halaman konten jadi komponen yang di-hydrate akan menambah JS. Konten v1 sudah berupa Markdown murni (tanpa JSX), jadi cukup di-rename dari `.mdx` ke `.md`. Data terstruktur (`profile.ts`, `experience.ts`) tetap TypeScript. Item dengan `draft: true` hanya tampil di `pnpm dev`, dan section atau link yang kosong disembunyikan otomatis, sama seperti v1.

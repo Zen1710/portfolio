@@ -1,0 +1,34 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Secrets (Wrangler local secrets, keys)
+.dev.vars
+.dev.vars.*
+*.pem
+id_rsa*
+
+# Impeccable scratch (decision sketches and mocks)
+.impeccable/decision/
+.impeccable/mocks/
+.impeccable/review/

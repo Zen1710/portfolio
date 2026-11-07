@@ -1,0 +1,3 @@
+# Gambar Open Graph dibuat per halaman saat build
+
+Setiap halaman (beranda, tiap Project, tiap Build Log) mendapat gambar Open Graph 1200×630 sendiri, berisi judul halaman dan nama pemilik situs dengan palette situs. Gambarnya di-render saat prerender dengan `satori` + `resvg`, jadi tidak ada biaya di browser atau di runtime Worker. Alasannya, link Project sering dibagikan ke Recruiter satu per satu, dan preview yang memuat judul Project lebih meyakinkan daripada satu gambar generik. Project baru otomatis dapat gambar sendiri tanpa langkah tambahan. Template gambarnya ikut didesain di `design/portofolio_v2.pen`.

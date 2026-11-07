@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/archivo/wdth.css';
+
+/* Long Exposure tokens, mirrored from design/portofolio_v2.pen. Dark is the default; light is opt-in. */
+@theme {
+	--font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+	--color-night: #07090b;
+	--color-surface: #121416;
+	--color-wash: #161a1d;
+	--color-line: #1e262c;
+	--color-ink: #e9eef2;
+	--color-muted: #9fb0bb;
+	--color-subtle: #6c7a84;
+	--color-action: #1fb5e9;
+	--color-trail: #0a78b4;
+	--color-trail-bright: #1fb5e9;
+	--color-live: #3dcb7a;
+}
+
+:root[data-theme='light'] {
+	--color-night: #f2f5f7;
+	--color-surface: #e8edf0;
+	--color-wash: #e1e7eb;
+	--color-line: #c9d3d9;
+	--color-ink: #0e1214;
+	--color-muted: #4a5862;
+	--color-subtle: #66737c;
+	--color-action: #0a6e9f;
+}
+
+:root {
+	color-scheme: dark;
+	background: var(--color-night);
+	color: var(--color-ink);
+	font-family: var(--font-sans);
+	font-variant-numeric: tabular-nums;
+	-webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme='light'] {
+	color-scheme: light;
+}
+
+::selection {
+	background: var(--color-trail);
+	color: #fff;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-action);
+	outline-offset: 3px;
+}

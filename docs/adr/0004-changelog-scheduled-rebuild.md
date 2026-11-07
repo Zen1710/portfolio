@@ -1,0 +1,3 @@
+# Changelog dari GitHub saat build, di-rebuild harian
+
+Changelog dibuat dari commit di repo situs ini dan repo setiap Project yang tampil, diambil lewat GitHub REST API saat build. Karena situs statis, commit di repo Project lain tidak memicu build, sehingga Changelog bisa basi. Solusinya, workflow GitHub Actions terjadwal (sehari sekali) memicu build ulang di Cloudflare. Mekanisme pemicunya (deploy hook Workers Builds atau `wrangler deploy` dari Actions) ditentukan saat setup. `GITHUB_TOKEN` disimpan sebagai secret di Cloudflare untuk menaikkan rate limit API. Repo yang tidak bisa dibaca (kosong, private, atau kena rate limit) dilewati, supaya build tidak pernah gagal gara-gara GitHub.
