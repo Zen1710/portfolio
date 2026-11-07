@@ -4,14 +4,14 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Status
 
-- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual terpilih: **Long Exposure** (direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, dan OG image belum. Git lokal di `develop`, belum ada repo GitHub.
+- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual terpilih: **Long Exposure** (direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
 - **Pendahulu:** v1 di `~/Developer/projects/portofolio` (Next.js, repo `Zen1710/Porto`). Konten, copy, dan palette diambil dari sana.
 
 ## Langkah berikutnya
 
-1. Halaman detail Project (`/projects/[slug]`) dan Build Log (`/build-logs/[slug]`), lalu 404.
-2. OG image per halaman (`satori` + `resvg`, ADR 0005), sitemap, robots.
-3. Security headers (`_headers`), Wrangler, workflow rebuild harian.
+1. Security headers (`static/_headers`) dan Cloudflare Web Analytics.
+2. Repo GitHub baru, Wrangler, deploy pertama ke Workers, workflow rebuild harian (ADR 0004).
+3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
 3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
 
 ## Menunggu dari Naufal
@@ -29,6 +29,17 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Halaman detail, 404, OG image, sitemap
+
+- `/projects/[slug]`: judul besar, ringkasan, tanggal + Repository + Live demo, chip tech, cover duotone (`mix-blend-mode: luminosity` di atas biru, `brightness(0.55)` supaya screenshot terang tidak jadi bidang putih), isi Markdown, navigasi project lebih baru/lama.
+- `/build-logs/[slug]`: tanggal + perkiraan menit baca, judul, ringkasan, isi (tabel ikut gaya `prose-dark`).
+- 404: `+error.svelte` dengan foto malam redup. `adapter-static` menulis `404.html` (`fallback`), dipakai Workers lewat `not_found_handling`.
+- OG image: `src/lib/server/og.ts` (satori + resvg + sharp `tint`), endpoint `/og/[...key]` di-prerender untuk beranda, tiap Project, dan tiap Build Log. Meta OG/Twitter/canonical lewat `Seo.svelte`, URL dari `profile.siteUrl`.
+- `sitemap.xml` (prerender) dan `robots.txt` menunjuk ke sitemap.
+- `prerender.handleUnseenRoutes`: rute detail boleh kosong selama belum ada yang Published, rute lain yang tidak terjangkau tetap menggagalkan build.
+- `@types/node` + `"types": ["$app/types", "node"]` di `tsconfig.json` untuk kode build-time.
+- `pnpm check` 0 error, 8 tes lolos, `pnpm build` lolos. JS awal beranda ~43,6 KB gzip.
 
 ### 2026-11-08: Loader konten dan beranda
 

@@ -3,6 +3,7 @@
 	import DraftMark from '#lib/components/DraftMark.svelte';
 	import Hero from '#lib/components/Hero.svelte';
 	import Section from '#lib/components/Section.svelte';
+	import Seo from '#lib/components/Seo.svelte';
 	import SiteClose from '#lib/components/SiteClose.svelte';
 	import TechChip from '#lib/components/TechChip.svelte';
 	import { formatDate, formatDayMonth, formatMonth } from '#lib/format.ts';
@@ -12,10 +13,7 @@
 	const { profile } = $derived(data);
 </script>
 
-<svelte:head>
-	<title>{profile.name} · {profile.role}</title>
-	<meta name="description" content={profile.headline} />
-</svelte:head>
+<Seo title="{profile.name} · {profile.role}" description={profile.headline} image="/og/home.png" siteUrl={profile.siteUrl} />
 
 <Hero {profile} stack={data.stack} hasCv={data.hasCv} span={data.span} />
 

@@ -1,14 +1,12 @@
 import { GITHUB_TOKEN } from '$app/env/private';
-import { profile } from '#content/profile.ts';
 import { getChangelog, repoSlug } from '#lib/server/changelog.ts';
 import { getAbout, getBuildLogs, getExperience, getProjects } from '#lib/server/content.ts';
+import { site } from '#lib/server/site.ts';
 import { getTechs } from '#lib/server/tech.ts';
 import type { PageServerLoad } from './$types';
 
-// Present only when static/cv.pdf exists; the CV button hides itself otherwise.
-const cvFile = import.meta.glob('/static/cv.pdf');
-
 export const load: PageServerLoad = async ({ fetch }) => {
+	const { profile } = site;
 	const projects = getProjects();
 	const now = new Date();
 	const nowYm = now.toISOString().slice(0, 7);
@@ -26,13 +24,12 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	const firstYear = Math.min(...experience.map((e) => Number(e.start.slice(0, 4))), now.getUTCFullYear());
 
 	return {
-		profile,
+		...site,
 		stack: {
 			mostly: getTechs(profile.stack.mostly),
 			frontend: getTechs(profile.stack.frontend),
 			backend: getTechs(profile.stack.backend)
 		},
-		hasCv: Object.keys(cvFile).length > 0,
 		about: getAbout(),
 		projects: projects.map(({ html: _html, ...p }) => ({ ...p, techs: getTechs(p.stack) })),
 		experience,

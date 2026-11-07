@@ -14,7 +14,16 @@ export default defineConfig({
 			},
 
 			// Every page is prerendered; Cloudflare Workers serves ./build as static assets (ADR 0001, 0002).
-			adapter: adapter({ pages: 'build', assets: 'build', strict: true })
+			// 404.html is the shell Workers serves for unknown paths (not_found_handling: 404-page).
+			adapter: adapter({ pages: 'build', assets: 'build', fallback: '404.html', strict: true }),
+
+			prerender: {
+				// Detail routes are empty while nothing is Published (the launch state); anything else unseen is a bug.
+				handleUnseenRoutes: ({ routes, message }) => {
+					const expected = ['/projects/[slug]', '/build-logs/[slug]'];
+					if (routes.some((r) => !expected.includes(r))) throw new Error(message);
+				}
+			}
 		})
 	]
 });
