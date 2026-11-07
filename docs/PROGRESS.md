@@ -4,13 +4,14 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Status
 
-- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual terpilih: **Long Exposure** (direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Scaffold SvelteKit sudah jadi (belum ada halaman nyata). Belum ada git maupun repo GitHub.
+- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual terpilih: **Long Exposure** (direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, dan OG image belum. Git lokal di `develop`, belum ada repo GitHub.
 - **Pendahulu:** v1 di `~/Developer/projects/portofolio` (Next.js, repo `Zen1710/Porto`). Konten, copy, dan palette diambil dari sana.
 
 ## Langkah berikutnya
 
-1. `git init` + commit pertama (tunggu izin Naufal).
-2. Implementasi dari `design/portofolio_v2.pen`: loader konten Markdown + schema Zod, beranda, detail Project/Build Log, 404, OG image, Changelog.
+1. Halaman detail Project (`/projects/[slug]`) dan Build Log (`/build-logs/[slug]`), lalu 404.
+2. OG image per halaman (`satori` + `resvg`, ADR 0005), sitemap, robots.
+3. Security headers (`_headers`), Wrangler, workflow rebuild harian.
 3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
 
 ## Menunggu dari Naufal
@@ -28,6 +29,16 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Loader konten dan beranda
+
+- Konten v1 dipindah ke `content/` (`.mdx` → `.md`), `profile.ts` dan `experience.ts` ikut (subpath import `#content/*`). `siteUrl` diganti ke `workers.dev`, `sourceRepo` dikosongkan sampai repo GitHub ada. Cover Project dan `cv.pdf` disalin ke `static/`.
+- Loader: `import.meta.glob` raw Markdown + parser frontmatter (`yaml`) + schema Zod (`src/lib/content/types.ts`) + `marked`. Semua di `src/lib/server/`, jadi tidak ikut ke browser. Chip tech dibuat di server (path SVG `simple-icons` dikirim sebagai data), jadi icon set tidak masuk bundle.
+- Changelog dipindah dari v1, `fetch` disuntikkan supaya bisa dites. `GITHUB_TOKEN` didefinisikan di `src/env.ts` (`defineEnvVars`, SvelteKit 3) dan dibaca dari `$app/env/private`.
+- SvelteKit 3: subpath import harus pakai ekstensi (`#lib/format.ts`), karena tsconfig bawaan memakai `allowImportingTsExtensions`.
+- Beranda: Hero (foto duotone lewat `mix-blend-mode: color`, shutter terbuka sekali saat load, header dengan foto + nama, tagline berchip), Experience sebagai jejak cahaya (animasi `animation-timeline: view()`, tanpa JS), Projects ala v1, Build Logs, Changelog, penutup + footer. Hero tetap gelap di tema light.
+- Vitest: 8 tes (frontmatter, visibility, changelog). `pnpm check` 0 error, `pnpm build` lolos. JS awal ~42 KB gzip (budget 50 KB).
+- Dicek di browser Pen: desktop 1180px, mobile 390px (tanpa scroll horizontal), tema light.
 
 ### 2026-11-08: Scaffold SvelteKit
 
