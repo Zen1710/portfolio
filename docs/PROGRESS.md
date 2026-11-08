@@ -9,10 +9,9 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Langkah berikutnya
 
-1. Security headers (`static/_headers`) dan Cloudflare Web Analytics.
-2. Repo GitHub baru, Wrangler, deploy pertama ke Workers, workflow rebuild harian (ADR 0004).
-3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
-3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
+1. Repo GitHub baru, Wrangler, deploy pertama ke Workers, workflow rebuild harian (ADR 0004).
+2. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
+2. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
 
 ## Menunggu dari Naufal
 
@@ -25,10 +24,20 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 - [ ] JS awal < 50 KB gzip, Lighthouse mobile ≥ 95 di semua kategori.
 - [ ] Subdomain akun `workers.dev` sudah dipilih, base URL di config sudah benar.
 - [ ] Secret `GITHUB_TOKEN` di Cloudflare, workflow rebuild harian aktif.
-- [ ] Snippet Cloudflare Web Analytics terpasang dan diizinkan CSP di `_headers`.
+- [ ] Buat site Web Analytics di dashboard Cloudflare, lalu isi env build `PUBLIC_CF_BEACON_TOKEN` di Workers Builds (snippet dan CSP sudah siap; tanpa token, script analytics tidak dimuat).
+- [ ] Setelah deploy, cek header di situs live (`curl -I`): `X-Frame-Options`, CSP `frame-ancestors`, `Referrer-Policy`, `Permissions-Policy`, dan cache `immutable` untuk `/_app/immutable/*`.
+- [ ] Saat pindah ke domain sendiri: aktifkan HSTS di Cloudflare (domain `.dev` termasuk `workers.dev` sudah HSTS-preload, domain baru belum tentu).
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Security headers dan Web Analytics
+
+- Pakai `security-audit` mode guidance (bukan audit penuh). Situs statis tanpa input pengguna, jadi fokusnya CSP dan header.
+- CSP lewat `csp` SvelteKit `mode: 'hash'` di `vite.config.ts`, terkirim sebagai `<meta>` per halaman: tanpa `unsafe-inline` untuk script; hash script tema dihitung dari `src/app.html` saat config dibaca (tidak bisa basi); Cloudflare Insights diizinkan di `script-src`/`connect-src`; `style-src-attr 'unsafe-inline'` hanya untuk atribut `style:` Svelte; `object-src 'none'`, `form-action 'none'`, `base-uri 'self'`.
+- `static/_headers`: `frame-ancestors 'none'` + `X-Frame-Options: DENY` (tidak bisa lewat meta), `nosniff`, `Referrer-Policy`, `Permissions-Policy`, `COOP`, cache `immutable` untuk `/_app/immutable/*`.
+- Web Analytics: snippet manual di `+layout.svelte`, hanya muncul kalau `PUBLIC_CF_BEACON_TOKEN` diisi saat build (`src/env.ts`, public + static). Dicek: dengan token dummy tag-nya muncul, tanpa token tidak ada.
+- Dicek di build produksi (`pnpm preview`): script tema dan hydration jalan di bawah CSP, font dan style termuat.
 
 ### 2026-11-08: Halaman detail, 404, OG image, sitemap
 
