@@ -6,7 +6,6 @@ stack: [python, ultralytics, tensorflowjs, javascript, bootstrap]
 repo: https://github.com/Zen1710/YOLOv11_detectionWhiteFlies
 demo: https://zen1710.github.io/YOLOv11_detectionWhiteFlies/
 cover: /projects/whitefly-detection.png
-draft: true
 ---
 
 ## What it is

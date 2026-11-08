@@ -32,6 +32,12 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Log
 
+### 2026-11-08: Publish Project dan Experience
+
+- Dipublish (atas keputusan Naufal): Property E-Catalog, Whitefly Detection, Smartphone Catalog, dan keenam entri Experience. Tetap Draft: Personal portfolio dan Build Log 01 (masih ada placeholder; Build Log 01 juga masih menceritakan keputusan v1).
+- Build produksi: halaman detail + OG untuk ketiga Project, sitemap 4 URL, section 01 About · 02 Projects · 03 Experience · 04 Changelog · 05 Contact, tanpa tanda Draft.
+- `GITHUB_TOKEN` sudah dipasang Naufal sebagai secret build di Workers Builds.
+
 ### 2026-11-08: Review akhir impeccable dan DESIGN.md
 
 - Screenshot review di `.impeccable/review/` (gitignored): desktop 1440 full page dan first viewport, mobile 412 (Lighthouse), detail Project, live. Detector: 0 temuan.

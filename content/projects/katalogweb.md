@@ -5,7 +5,6 @@ date: 2024-08
 stack: [laravel, php, mysql, bootstrap]
 repo: https://github.com/Zen1710/KatalogWeb
 cover: /projects/katalogweb.png
-draft: true
 ---
 
 ## What it is

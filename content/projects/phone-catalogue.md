@@ -5,7 +5,6 @@ date: 2026-10
 stack: [html, css, javascript]
 repo: https://github.com/Zen1710/phone-catalogue-test
 cover: /projects/phone-catalogue.png
-draft: true
 ---
 
 ## What it is

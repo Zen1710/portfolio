@@ -20,7 +20,6 @@ export const experience: Experience[] = [
     summary:
       "Built the company's Real Estate Management Information System and property e-catalog with Laravel and MySQL, with modules for housing data, service portfolios, and cooperative partnerships.",
     stack: ["laravel", "php", "mysql"],
-    draft: true,
   },
   {
     title: "IT Helpdesk",
@@ -30,7 +29,6 @@ export const experience: Experience[] = [
     end: "2026-07",
     summary:
       "Handled IT incidents through a ticketing system, from logging and prioritizing to tracking each one until resolved, with first-level troubleshooting and escalation to the right support teams.",
-    draft: true,
   },
   {
     title: "Web Developer Intern",
@@ -41,7 +39,6 @@ export const experience: Experience[] = [
     summary:
       "Built a client e-ticketing platform with Laravel that puts every service request and incident report in one place, with a structured workflow for prioritizing and tracking them.",
     stack: ["laravel", "php"],
-    draft: true,
   },
   {
     title: "Bachelor of Computer Science, Informatics Engineering",
@@ -51,7 +48,6 @@ export const experience: Experience[] = [
     end: "2025-08",
     summary: "Final project: detecting whitefly pests on cucurbit crops with YOLOv11.",
     stack: ["python", "ultralytics"],
-    draft: true,
   },
   {
     title: "Front-End, Back-End, and Full-Stack Development",
@@ -62,7 +58,6 @@ export const experience: Experience[] = [
     summary:
       "Three certificates covering HTML and CSS, JavaScript, single-page apps with React, backend APIs with Node.js and Express, and SQL databases.",
     stack: ["javascript", "react", "nodejs", "express"],
-    draft: true,
   },
   {
     title: "Java & AI Development Bootcamp",
@@ -72,6 +67,5 @@ export const experience: Experience[] = [
     end: "2022-08",
     summary:
       "Training in AI and machine learning fundamentals implemented in Java, completed with Oracle Academy's course and final exam.",
-    draft: true,
   },
 ];
