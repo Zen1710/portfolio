@@ -23,12 +23,12 @@
 	{#each items as item (`${item.org}-${item.start}`)}
 		{@const left = pct(item.start)}
 		{@const right = item.end ? Math.max(pct(item.end), left + 1) : 100}
-		<li class="grid gap-3 border-b border-line py-5 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:items-center lg:gap-10">
+		<li class="grid gap-3 border-b border-line py-5">
 			<div>
-				<h3 class="text-[1.1875rem] leading-snug font-medium text-ink">
+				<h3 class="text-lg leading-snug font-medium text-ink lg:text-[1.1875rem]">
 					{item.title}{#if item.draft}<DraftMark />{/if}
 				</h3>
-				<p class="mt-1 text-[0.9375rem] text-muted">{item.org}</p>
+				<p class="mt-1 font-mono text-[0.8125rem] text-muted">{item.org}</p>
 				<p class="sr-only">{formatRange(item.start, item.end)}</p>
 			</div>
 			<div class="relative h-6" aria-hidden="true">
@@ -39,8 +39,7 @@
 		</li>
 	{/each}
 </ol>
-<div class="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] lg:gap-10" aria-hidden="true">
-	<span></span>
+<div aria-hidden="true">
 	<div class="caption relative mt-3.5 h-4">
 		{#each years as y (y)}<span class="absolute" style:left="{((y * 12 - start) / (end - start)) * 100}%">{y}</span>{/each}
 		<span class="absolute right-0 font-semibold text-ink">Now</span>

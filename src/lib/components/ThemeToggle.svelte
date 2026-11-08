@@ -1,4 +1,5 @@
 <script lang="ts">
+	let { onColor = false }: { onColor?: boolean } = $props();
 	let light = $state(false);
 
 	$effect(() => {
@@ -21,7 +22,9 @@
 	type="button"
 	onclick={toggle}
 	aria-label={light ? 'Switch to dark theme' : 'Switch to light theme'}
-	class="grid size-9 shrink-0 place-items-center rounded-full border border-line text-ink transition-colors duration-200 hover:border-action"
+	class="grid size-9 shrink-0 place-items-center rounded border transition-colors duration-200 {onColor
+		? 'border-white/40 text-white hover:border-white'
+		: 'border-line text-ink hover:border-action'}"
 >
 	<svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 		{#if light}

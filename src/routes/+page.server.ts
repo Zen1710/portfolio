@@ -31,11 +31,11 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			backend: getTechs(profile.stack.backend)
 		},
 		about: getAbout(),
-		projects: projects.map(({ html: _html, ...p }) => ({ ...p, techs: getTechs(p.stack) })),
+		projects: projects.map(({ html: _html, headings: _h, ...p }) => ({ ...p, techs: getTechs(p.stack) })),
 		experience,
 		now: nowYm,
 		span: { from: firstYear, to: now.getUTCFullYear() },
-		buildLogs: getBuildLogs().map(({ html: _html, ...l }) => l),
+		buildLogs: getBuildLogs().map(({ html: _html, headings: _h, ...l }) => l),
 		changelog: await getChangelog(sources, 8, { fetch, token: GITHUB_TOKEN })
 	};
 };

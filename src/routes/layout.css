@@ -1,9 +1,15 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/archivo/wdth.css';
+@import '@fontsource-variable/instrument-sans/index.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+@import '@fontsource/ibm-plex-mono/latin-600.css';
+@import '@fontsource/silkscreen/latin-400.css';
 
-/* Long Exposure tokens, mirrored from design/portofolio_v2.pen. Dark is the default; light is opt-in. */
+/* Code Bridge tokens, mirrored from design/portofolio_v2.pen. Dark is the default; light is opt-in. */
 @theme {
-	--font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+	--font-pixel: 'Silkscreen', 'IBM Plex Mono', monospace;
 
 	--color-night: #07090b;
 	--color-surface: #121416;
@@ -52,28 +58,22 @@
 	outline-offset: 3px;
 }
 
-/* The hero is a night photograph: it keeps the dark tokens in both themes. */
-[data-theme-lock='dark'] {
-	--color-night: #07090b;
-	--color-surface: #121416;
-	--color-wash: #161a1d;
-	--color-line: #1e262c;
-	--color-ink: #e9eef2;
-	--color-muted: #9fb0bb;
-	--color-subtle: #6c7a84;
-	--color-action: #1fb5e9;
-	color-scheme: dark;
-	color: var(--color-ink);
-}
-
 @layer components {
-	.display {
-		font-weight: 600;
-		font-stretch: 108%;
-		letter-spacing: -0.035em;
-		line-height: 1.04;
+	/* Silkscreen is a pixel face: one weight, no tracking tweaks, never faux-bolded. */
+	.pixel {
+		font-family: var(--font-pixel);
+		font-weight: 400;
+		font-synthesis: none;
+		line-height: 1.2;
 		text-wrap: balance;
-		color: var(--color-ink);
+	}
+
+	.label {
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
 	}
 
 	.link {
@@ -89,8 +89,9 @@
 	}
 
 	.caption {
-		font-size: 0.6875rem;
-		letter-spacing: 0.22em;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
 		text-transform: uppercase;
 		color: var(--color-subtle);
 	}
@@ -106,7 +107,8 @@
 	}
 	.prose-dark h2 {
 		margin-top: 3rem;
-		font-size: 1.875rem;
+		scroll-margin-top: 2rem;
+		font-size: 1.75rem;
 		font-weight: 600;
 		letter-spacing: -0.02em;
 		color: var(--color-ink);
@@ -125,15 +127,14 @@
 		padding-left: 1.75rem;
 	}
 	.prose-dark li::before {
-		content: '';
+		content: '→';
 		position: absolute;
 		left: 0;
-		top: 0.85em;
-		width: 0.875rem;
-		height: 2px;
-		background: var(--color-trail);
+		font-family: var(--font-mono);
+		color: var(--color-action);
 	}
 	.prose-dark code {
+		font-family: var(--font-mono);
 		font-size: 0.9em;
 		color: var(--color-ink);
 	}
@@ -144,6 +145,7 @@
 	}
 	.prose-dark th {
 		text-align: left;
+		font-family: var(--font-mono);
 		font-size: 0.6875rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;

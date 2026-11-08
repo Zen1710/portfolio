@@ -10,7 +10,7 @@ import {
 	type ProjectMeta
 } from '#lib/content/types.ts';
 import { splitFrontmatter } from './frontmatter.ts';
-import { renderMarkdown } from './markdown.ts';
+import { headingsOf, renderMarkdown, type Heading } from './markdown.ts';
 import { isVisible } from './visibility.ts';
 
 // Read at build time; the raw Markdown never reaches the browser.
@@ -18,7 +18,7 @@ const projectFiles = import.meta.glob('/content/projects/*.md', { query: '?raw',
 const logFiles = import.meta.glob('/content/build-logs/*.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const aboutFiles = import.meta.glob('/content/about.md', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 
-export type Entry<T> = T & { slug: string; html: string };
+export type Entry<T> = T & { slug: string; html: string; headings: Heading[] };
 
 const slugOf = (file: string) => file.split('/').pop()!.replace(/\.md$/, '');
 
@@ -30,7 +30,7 @@ export function readCollection<S extends z.ZodType<object>>(files: Record<string
 			// Fail the build instead of shipping a half-filled entry.
 			throw new Error(`Invalid frontmatter in ${file}:\n${result.error.message}`);
 		}
-		return { ...result.data, slug: slugOf(file), html: renderMarkdown(body) };
+		return { ...result.data, slug: slugOf(file), html: renderMarkdown(body), headings: headingsOf(body) };
 	});
 }
 

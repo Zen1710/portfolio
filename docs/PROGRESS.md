@@ -4,14 +4,14 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Status
 
-- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual terpilih: **Long Exposure** (direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
+- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual: **Code Bridge** (desain Nova di Pen, layout dua kolom ala v1; direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Long Exposure ditinggalkan. Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
 - **Pendahulu:** v1 di `~/Developer/projects/portofolio` (Next.js, repo `Zen1710/Porto`). Konten, copy, dan palette diambil dari sana.
 
 ## Langkah berikutnya
 
 1. Repo GitHub baru, Wrangler, deploy pertama ke Workers, workflow rebuild harian (ADR 0004).
-2. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
-2. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
+2. Pilih varian desain beranda: Long Exposure (Archivo) atau Code Bridge (Silkscreen + Instrument Sans).
+3. Review akhir `impeccable` (finish reviewer), lalu tulis `DESIGN.md`.
 
 ## Menunggu dari Naufal
 
@@ -30,6 +30,20 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Ganti ke desain Code Bridge
+
+- Naufal memilih desain "Code Bridge" buatan Nova di Pen, dengan layout seperti v1 (kolom kiri sticky + kanan scroll). Font diringkas jadi 3: Silkscreen (headline, judul halaman, nama), Instrument Sans (teks), IBM Plex Mono (label, tanggal, chip, judul section bernomor). Archivo dan foto Long Exposure dihapus, `sharp` tidak dipakai lagi.
+- Beranda: `SidePanel` (bidang biru + `PixelDecor`, identitas, headline pixel, `StatusCard`, `ScrollspyNav`, tombol CV) dan kolom kanan dengan section bernomor otomatis (nomor mengikuti section yang tampil). Mobile: header biru dengan dekor ringkas, lalu kartu status dan section.
+- Detail Project/Build Log: `TopBar`, header simpel (judul pixel, ringkasan, meta mono, chip), `ArticleLayout` dengan indeks bagian bernomor dari heading `##` (heading kini punya `id`), preview gambar dari `cover` di halaman Project.
+- 404: layar biru dengan dekor pixel, teks "Nothing was built at this address." OG image: kartu biru + glyph pixel + judul Silkscreen.
+- `pnpm check` 0 error, 9 tes lolos, build lolos. JS awal ~45,3 KB gzip. Dicek di browser: desktop 1440 (sticky + scrollspy jalan), mobile 390 (tanpa scroll horizontal), detail Project, 404, OG.
+
+### 2026-11-08: Varian desain "Code Bridge"
+
+- Frame baru di Pen: "Desktop / Home — Code Bridge (dark)", salinan layout v1 dengan isi dan palette yang sama, tapi font dan style UI dari style Saturated Code Bridge: Silkscreen (headline, nama), Instrument Sans (body), IBM Plex Mono (label, chip), Fragment Mono (tanggal, data).
+- Panel kiri jadi bidang biru `#0A78B4` + pixel decor 12% opacity, dengan Status Card gelap (tagline, availability, link) yang menimpa batas bidang. Komponen baru `Tech Chip / Mono`; komponen dan frame lama tidak diubah.
+- Menunggu pilihan Naufal: tetap Archivo/Long Exposure atau pindah ke varian ini.
 
 ### 2026-11-08: Security headers dan Web Analytics
 
