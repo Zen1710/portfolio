@@ -1,6 +1,6 @@
 # Naufal Rizky Ananda — Portfolio
 
-Personal portfolio, version 2. A fully static SvelteKit site served by Cloudflare Workers. Live at [portfolio.naufalrizkyananda.workers.dev](https://portfolio.naufalrizkyananda.workers.dev).
+Personal portfolio, version 2. A fully static SvelteKit site served by Cloudflare Workers. Live at [portfolio.foxizen1710.workers.dev](https://portfolio.foxizen1710.workers.dev).
 
 It replaces [v1](https://github.com/Zen1710/Porto), a Next.js build of the same site. The content and goals are the same; the stack, hosting, and design are new. The reasoning behind the bigger decisions is in [`docs/adr/`](docs/adr/), and the project's vocabulary (Project, Build Log, Draft, …) is in [`GLOSSARY.md`](GLOSSARY.md).
 

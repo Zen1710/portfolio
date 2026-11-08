@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://portfolio.naufalrizkyananda.workers.dev/sitemap.xml
+Sitemap: https://portfolio.foxizen1710.workers.dev/sitemap.xml

@@ -4,7 +4,7 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Status
 
-- **Tahap:** desain, menunggu review Naufal di Pen. Arah visual: **Code Bridge** (desain Nova di Pen, layout dua kolom ala v1; direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Long Exposure ditinggalkan. Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
+- **Tahap:** live di https://portfolio.foxizen1710.workers.dev (deploy otomatis dari `main` lewat Cloudflare Workers Builds). Sebelumnya: desain, menunggu review Naufal di Pen. Arah visual: **Code Bridge** (desain Nova di Pen, layout dua kolom ala v1; direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Long Exposure ditinggalkan. Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
 - **Pendahulu:** v1 di `~/Developer/projects/portofolio` (Next.js, repo `Zen1710/Porto`). Konten, copy, dan palette diambil dari sana.
 
 ## Langkah berikutnya
@@ -21,15 +21,23 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Checklist sebelum deploy
 
-- [ ] JS awal < 50 KB gzip, Lighthouse mobile ≥ 95 di semua kategori.
-- [ ] Subdomain akun `workers.dev` sudah dipilih, base URL di config sudah benar.
+- [x] JS awal < 50 KB gzip (45,3 KB), Lighthouse mobile ≥ 95 di semua kategori (situs live 8 Nov: 99/100/100/100).
+- [x] Subdomain akun `workers.dev`: `foxizen1710`, jadi situsnya `https://portfolio.foxizen1710.workers.dev`; `siteUrl`, `robots.txt`, dan README sudah disesuaikan.
 - [ ] Secret `GITHUB_TOKEN` di Cloudflare, workflow rebuild harian aktif.
 - [ ] Buat site Web Analytics di dashboard Cloudflare, lalu isi env build `PUBLIC_CF_BEACON_TOKEN` di Workers Builds (snippet dan CSP sudah siap; tanpa token, script analytics tidak dimuat).
-- [ ] Setelah deploy, cek header di situs live (`curl -I`): `X-Frame-Options`, CSP `frame-ancestors`, `Referrer-Policy`, `Permissions-Policy`, dan cache `immutable` untuk `/_app/immutable/*`.
+- [x] Setelah deploy, cek header di situs live (`curl -I`): semua header dari `_headers` terkirim di halaman, cache `immutable` di `/_app/immutable/*`. Catatan: respons 404 hanya membawa `nosniff`.
 - [ ] Saat pindah ke domain sendiri: aktifkan HSTS di Cloudflare (domain `.dev` termasuk `workers.dev` sudah HSTS-preload, domain baru belum tentu).
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Deploy pertama ke Cloudflare
+
+- Repo GitHub `Zen1710/portfolio` (public) dibuat dan di-push oleh Naufal. Cloudflare Workers Builds tersambung ke `main` (build `pnpm run build`, deploy `npx wrangler deploy`). Build di Cloudflare lolos, termasuk paket native OG (`@resvg/resvg-js`).
+- Persiapan: `.node-version` 24, `packageManager: pnpm@12.15.0`, Wrangler devDep, `pnpm-workspace.yaml` dengan `allowBuilds` untuk esbuild dan workerd (pnpm 12 menggagalkan install kalau build script belum disetujui).
+- Situs live: `https://portfolio.foxizen1710.workers.dev`. Dicek: header keamanan, cache immutable, 404, OG, sitemap, tampilan desktop. Lighthouse mobile (lokal, Chrome headless): Performance 99, Accessibility 100, Best Practices 100, SEO 100; LCP 2,0 s, TBT 0 ms, CLS 0,018.
+- URL lama `portfolio.naufalrizkyananda.workers.dev` diganti ke URL asli di `siteUrl`, `robots.txt`, README.
+- Changelog di situs live kosong: build Cloudflare gagal membaca GitHub API tanpa token (repo dilewati). Perlu `GITHUB_TOKEN`.
 
 ### 2026-11-08: Versi light Code Bridge
 
