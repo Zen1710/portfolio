@@ -4,7 +4,7 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Status
 
-- **Tahap:** live di https://portfolio.foxizen1710.workers.dev (deploy otomatis dari `main` lewat Cloudflare Workers Builds). Sebelumnya: desain, menunggu review Naufal di Pen. Arah visual: **Code Bridge** (desain Nova di Pen, layout dua kolom ala v1; direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Long Exposure ditinggalkan. Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Git lokal di `develop`, belum ada repo GitHub.
+- **Tahap:** live di https://portfolio.naufalrizkyananda.workers.dev (deploy otomatis dari `main` lewat Cloudflare Workers Builds). Sebelumnya: desain, menunggu review Naufal di Pen. Arah visual: **Code Bridge** (desain Nova di Pen, layout dua kolom ala v1; direction contract di `.impeccable/surfaces/src-routes-page-svelte.md`). Long Exposure ditinggalkan. Beranda sudah jadi dari desain (Hero, About, Projects, Experience, Build Logs, Changelog, Contact). Halaman detail Project/Build Log, 404, OG image per halaman, dan sitemap juga sudah jadi. Repo GitHub `Zen1710/portfolio` (public), kerja di `develop`, tayang dari `main`; rebuild harian lewat GitHub Actions.
 - **Pendahulu:** v1 di `~/Developer/projects/portofolio` (Next.js, repo `Zen1710/Porto`). Konten, copy, dan palette diambil dari sana.
 
 ## Langkah berikutnya
@@ -22,7 +22,7 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 ## Checklist sebelum deploy
 
 - [x] JS awal < 50 KB gzip (45,3 KB), Lighthouse mobile ≥ 95 di semua kategori (situs live 8 Nov: 99/100/100/100).
-- [x] Subdomain akun `workers.dev`: `foxizen1710`, jadi situsnya `https://portfolio.foxizen1710.workers.dev`; `siteUrl`, `robots.txt`, dan README sudah disesuaikan.
+- [x] Subdomain akun `workers.dev`: `naufalrizkyananda` (diganti dari `foxizen1710` pada 8 Nov), jadi situsnya `https://portfolio.naufalrizkyananda.workers.dev`; `siteUrl`, `robots.txt`, README, dan demo link entri Personal portfolio sudah disesuaikan.
 - [x] Workflow rebuild harian aktif: secret repo `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID` terpasang, run manual 8 Nov sukses dan Changelog live terisi.
 - [ ] Opsional: secret build `GITHUB_TOKEN` di Workers Builds supaya deploy dari push juga mengisi Changelog (tanpa itu Changelog kosong sampai rebuild harian berikutnya).
 - [ ] Buat site Web Analytics di dashboard Cloudflare, lalu isi env build `PUBLIC_CF_BEACON_TOKEN` di Workers Builds (snippet dan CSP sudah siap; tanpa token, script analytics tidak dimuat).
@@ -31,6 +31,11 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 - [ ] Cek preview OG di salah satu link Project (mis. lewat LinkedIn Post Inspector).
 
 ## Log
+
+### 2026-11-08: Ganti subdomain workers.dev
+
+- Naufal mengganti subdomain akun Cloudflare dari `foxizen1710` ke `naufalrizkyananda`. URL situs sekarang `https://portfolio.naufalrizkyananda.workers.dev`; URL lama tidak aktif lagi.
+- Diperbarui: `siteUrl` (`content/profile.ts`), `static/robots.txt`, README, `demo` di `content/projects/portfolio-site.md`. Entri log lama tetap menyebut URL lama sebagai catatan sejarah.
 
 ### 2026-11-08: Publish Project dan Experience
 

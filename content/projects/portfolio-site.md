@@ -4,7 +4,7 @@ summary: This site. A static SvelteKit portfolio on Cloudflare Workers, with Mar
 date: 2026-11
 stack: [sveltekit, typescript, tailwindcss]
 repo: https://github.com/Zen1710/portfolio
-demo: https://portfolio.foxizen1710.workers.dev
+demo: https://portfolio.naufalrizkyananda.workers.dev
 draft: true
 ---
 
