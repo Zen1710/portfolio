@@ -1,56 +1,80 @@
-# sv
+# Naufal Rizky Ananda — Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio, version 2. A fully static SvelteKit site served by Cloudflare Workers. Live at [portfolio.naufalrizkyananda.workers.dev](https://portfolio.naufalrizkyananda.workers.dev).
 
-## Creating a project
+It replaces [v1](https://github.com/Zen1710/Porto), a Next.js build of the same site. The content and goals are the same; the stack, hosting, and design are new. The reasoning behind the bigger decisions is in [`docs/adr/`](docs/adr/), and the project's vocabulary (Project, Build Log, Draft, …) is in [`GLOSSARY.md`](GLOSSARY.md).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Stack
 
-```sh
-# create a new project
-npx sv create my-app
+- **SvelteKit + Svelte 5** with `adapter-static`: every page is prerendered, then hydrated for client-side navigation.
+- **Tailwind CSS v4**, three self-hosted fonts (Silkscreen, Instrument Sans, IBM Plex Mono).
+- **Markdown content** rendered at build time with `marked`, frontmatter validated with Zod. None of it ships to the browser.
+- **Cloudflare Workers Static Assets** for hosting, Cloudflare Web Analytics for visits.
+- **Open Graph images** generated per page at build with `satori` + `resvg`.
+- Budget: initial JS under 50 KB gzip.
+
+The design lives in [`design/portofolio_v2.pen`](design/) (made with [pen.dev](https://pen.dev)).
+
+## Run it
+
+Needs Node 24 and pnpm 12 (see `.node-version` and `packageManager`).
+
+```bash
+pnpm install
+pnpm dev        # http://localhost:5173, drafts visible
+pnpm test       # unit tests (frontmatter, Markdown, draft rules, changelog)
+pnpm check      # svelte-check + TypeScript
+pnpm build      # production build in build/, drafts hidden
+pnpm preview    # serve the production build
 ```
 
-To recreate this project with the same configuration:
+## Add content
 
-```sh
-# recreate this project
-npx sv@1.3.0 create --template minimal --types ts --no-install scaffold
+Everything a visitor reads lives in [`content/`](content/). Adding an item means adding a file; the layout never changes.
+
+| What | Where |
+| --- | --- |
+| Name, headline, stack, links | `content/profile.ts` |
+| About text | `content/about.md` |
+| A Project | `content/projects/<slug>.md` |
+| A Build Log | `content/build-logs/<slug>.md` |
+| Experience | `content/experience.ts` |
+| Project preview images | `static/projects/<slug>.png`, referenced as `cover` |
+| CV | `static/cv.pdf` (the Download CV links appear once it exists) |
+| Changelog | nothing to write: it lists commits from this repo and every visible Project's `repo` |
+
+Project frontmatter:
+
+```yaml
+---
+title: My app
+summary: One sentence on what it does.
+date: 2026-10          # or 2026-10-26
+stack: [sveltekit, typescript, postgresql]
+repo: https://github.com/you/my-app    # optional
+demo: https://my-app.example.com       # optional
+cover: /projects/my-app.png            # optional, file in static/
+draft: true            # visible locally only; remove to publish
+---
 ```
 
-## Adding features
+Build Logs take `title`, `summary`, `date`, and `draft`. Each `##` heading becomes an entry in the page's numbered section index. A frontmatter mistake fails the build with the file name and the field, so nothing half-filled reaches the live site.
 
-Add features to your project with `sv add`:
+**Draft and Published:** an entry with `draft: true` shows up in `pnpm dev` with a Draft mark and never on the live site. A section with nothing Published disappears along with its nav item and number, and so does any empty link in `content/profile.ts`.
 
-```sh
-npx sv add
-```
+## Changelog
 
-For example, to add Tailwind CSS:
+Built from GitHub commits of this repo (`sourceRepo` in `content/profile.ts`) and of every visible Project that has a `repo`. Merge commits and commits mentioning Claude are skipped, and only the first line of each message is shown. Commits are fetched once per build, so the list refreshes on every deploy. Set `GITHUB_TOKEN` at build time to raise GitHub's API rate limit; without it the build still works and skips repos it cannot read.
 
-```sh
-npx sv add tailwindcss
-```
+## Deploy
 
-## Developing
+Cloudflare Workers Builds deploys `main`: build command `pnpm build`, deploy command `npx wrangler deploy` (config in [`wrangler.jsonc`](wrangler.jsonc)). `pnpm run deploy` does the same from a local machine (plain `pnpm deploy` is a different, built-in pnpm command).
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Optional build variables:
 
-```sh
-npm run dev
+- `GITHUB_TOKEN`: raises the GitHub API rate limit for the Changelog.
+- `PUBLIC_CF_BEACON_TOKEN`: Cloudflare Web Analytics site token. Without it, no analytics script is added.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Security headers are in [`static/_headers`](static/_headers); the Content Security Policy is generated per page by SvelteKit (`csp` in [`vite.config.ts`](vite.config.ts)).
 
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Work happens on `develop` and is merged into `main` when it is ready to go live.
