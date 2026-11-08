@@ -11,9 +11,10 @@
 	} as const;
 
 	// Positions as a share of the 640×440 colour field the design draws them on.
-	const items: { shape: keyof typeof shapes; x: number; y: number; size: number }[] = [
+	// wide: only where the headline breaks exactly as the design does (column ≥ 1320px); elsewhere it would sit on the text.
+	const items: { shape: keyof typeof shapes; x: number; y: number; size: number; wide?: boolean }[] = [
 		{ shape: 'heart', x: 408, y: 22, size: 32 },
-		{ shape: 'arrow', x: 470, y: 110, size: 32 },
+		{ shape: 'arrow', x: 330, y: 246, size: 32, wide: true },
 		{ shape: 'plus', x: 598, y: 170, size: 24 },
 		{ shape: 'star', x: 492, y: 240, size: 32 },
 		{ shape: 'plus', x: 22, y: 330, size: 24 },
@@ -26,7 +27,9 @@
 	];
 </script>
 
-<div class="pointer-events-none absolute inset-0" aria-hidden="true">
+<!-- Opacity comes from the approved frames: 12% for the desktop field (puv2z/PY2IF), 90% for the
+     three small mobile edge glyphs, which would vanish at 12%. -->
+<div class="pointer-events-none absolute inset-0 {compact ? 'opacity-90' : 'opacity-[0.12]'}" aria-hidden="true">
 	{#if compact}
 		{#each compactItems as item, i (i)}
 			<svg
@@ -44,7 +47,7 @@
 	{#each items as item, i (i)}
 		<svg
 			viewBox="0 0 8 8"
-			class="absolute fill-white"
+			class="absolute fill-white {item.wide ? 'hidden min-[1320px]:block' : ''}"
 			style:left="{(item.x / 640) * 100}%"
 			style:top="{(item.y / 440) * 100}%"
 			style:width="{item.size}px"

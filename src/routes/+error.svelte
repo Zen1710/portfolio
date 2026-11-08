@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import PixelArrow from '#lib/components/PixelArrow.svelte';
 	import PixelDecor from '#lib/components/PixelDecor.svelte';
 </script>
 
@@ -13,5 +14,5 @@
 	<h1 class="pixel mt-5 max-w-[22ch] text-[2.25rem] leading-[1.15] lg:text-[3.5rem]">
 		{page.status === 404 ? 'Nothing was built at this address.' : 'Something broke while building this page.'}
 	</h1>
-	<a class="mt-6 font-mono text-base text-white underline underline-offset-4" href="/">← Back to the home page</a>
+	<a class="mt-6 inline-flex w-fit items-center gap-2 font-mono text-base text-white underline underline-offset-4" href="/"><PixelArrow dir="left" />Back to the home page</a>
 </main>

@@ -95,7 +95,7 @@
 			<Section id="changelog" index={indexOf('changelog')} title="Changelog">
 				<ol class="font-mono">
 					{#each data.changelog as change (change.sha)}
-						<li class="grid grid-cols-[4.5rem_1fr] gap-x-6 border-b border-line py-3.5 lg:grid-cols-[4.5rem_9rem_1fr]">
+						<li class="grid grid-cols-[3.75rem_1fr] gap-x-4 border-b border-line py-3.5 lg:grid-cols-[3.75rem_4.75rem_1fr]">
 							<time class="pt-0.5 text-xs tracking-[0.04em] text-subtle uppercase" datetime={change.date.toISOString()}>{formatDayMonth(change.date)}</time>
 							<span class="hidden truncate text-[0.8125rem] text-muted lg:block">{change.source}</span>
 							<a href={change.url} class="text-sm text-ink hover:text-action">{change.message}</a>

@@ -27,7 +27,7 @@
 					<Identity name={profile.name} onColor />
 					<ThemeToggle onColor />
 				</div>
-				<h1 class="pixel relative mt-7 pr-12 text-2xl text-white lg:mt-9 lg:pr-0 lg:text-[2.125rem]">{profile.headline}</h1>
+				<h1 class="pixel relative mt-7 pr-12 text-2xl [text-wrap:wrap] text-white lg:mt-9 lg:pr-0 lg:text-[2.125rem]">{profile.headline}</h1>
 			</div>
 
 			<div class="px-4 pt-6 sm:px-8 lg:px-0"><StatusCard {profile} {stack} /></div>

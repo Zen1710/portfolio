@@ -2,6 +2,7 @@
 	import ArticleLayout from '#lib/components/ArticleLayout.svelte';
 	import Contact from '#lib/components/Contact.svelte';
 	import DraftMark from '#lib/components/DraftMark.svelte';
+	import PixelArrow from '#lib/components/PixelArrow.svelte';
 	import Seo from '#lib/components/Seo.svelte';
 	import SiteFooter from '#lib/components/SiteFooter.svelte';
 	import TopBar from '#lib/components/TopBar.svelte';
@@ -23,7 +24,7 @@
 
 <main>
 	<header class="border-b border-line px-4 pt-14 pb-12 sm:px-8 lg:px-16 lg:pt-18 lg:pb-14">
-		<a class="link font-mono text-sm" href="/#build-logs">← All build logs</a>
+		<a class="link inline-flex items-center gap-2 font-mono text-sm" href="/#build-logs"><PixelArrow dir="left" />All build logs</a>
 		<h1 class="pixel mt-6 max-w-[30ch] text-[1.75rem] leading-[1.15] text-ink lg:text-[2.25rem]">
 			{log.title}{#if log.draft}<DraftMark />{/if}
 		</h1>

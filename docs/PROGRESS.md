@@ -23,7 +23,8 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 - [x] JS awal < 50 KB gzip (45,3 KB), Lighthouse mobile ≥ 95 di semua kategori (situs live 8 Nov: 99/100/100/100).
 - [x] Subdomain akun `workers.dev`: `foxizen1710`, jadi situsnya `https://portfolio.foxizen1710.workers.dev`; `siteUrl`, `robots.txt`, dan README sudah disesuaikan.
-- [ ] Workflow rebuild harian aktif: tambahkan secret repo `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID` di GitHub, lalu jalankan sekali manual (Actions → Daily rebuild → Run workflow). Opsional: secret build `GITHUB_TOKEN` di Workers Builds supaya deploy dari push juga mengisi Changelog.
+- [x] Workflow rebuild harian aktif: secret repo `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID` terpasang, run manual 8 Nov sukses dan Changelog live terisi.
+- [ ] Opsional: secret build `GITHUB_TOKEN` di Workers Builds supaya deploy dari push juga mengisi Changelog (tanpa itu Changelog kosong sampai rebuild harian berikutnya).
 - [ ] Buat site Web Analytics di dashboard Cloudflare, lalu isi env build `PUBLIC_CF_BEACON_TOKEN` di Workers Builds (snippet dan CSP sudah siap; tanpa token, script analytics tidak dimuat).
 - [x] Setelah deploy, cek header di situs live (`curl -I`): semua header dari `_headers` terkirim di halaman, cache `immutable` di `/_app/immutable/*`. Catatan: respons 404 hanya membawa `nosniff`.
 - [ ] Saat pindah ke domain sendiri: aktifkan HSTS di Cloudflare (domain `.dev` termasuk `workers.dev` sudah HSTS-preload, domain baru belum tentu).
@@ -31,9 +32,17 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Log
 
+### 2026-11-08: Review akhir impeccable dan DESIGN.md
+
+- Screenshot review di `.impeccable/review/` (gitignored): desktop 1440 full page dan first viewport, mobile 412 (Lighthouse), detail Project, live. Detector: 0 temuan.
+- Finish reviewer (fresh): disposition fix, 8 perbaikan, semua diterapkan: glyph pixel 12% sesuai frame (mobile 90%), headline tanpa `text-wrap: balance` + panah pixel hanya ≥1320px, kolom Changelog dirapatkan, indeks bagian detail punya state aktif (jejak cahaya), seed contract, `PixelArrow` mengganti semua panah Unicode, spasi footer. Teks (keputusan Naufal): About jadi "This site is open source…", entri "Personal portfolio" ditulis ulang untuk v2 (masih Draft, placeholder "What I would do next" menunggu Naufal).
+- Verdict pass: 8/8 resolved; regresi glyph mobile diperbaiki. Belum direview: tema light.
+- `DESIGN.md` + `.impeccable/design.json` ditulis documenter dari kode (5 aturan: Clickable Blue, One Field, Three Faces, Pixel Restraint, Single Lift). Catatan documenter: label kecil di atas judul pada kartu OG dan halaman error tidak dijadikan aturan sistem; `#1FB5E9` juga dipakai di nomor section dan logo chip (sesuai frame, dicatat sebagai pengecualian).
+
 ### 2026-11-08: Workflow rebuild harian
 
 - `.github/workflows/rebuild.yml`: jadwal 06:00 WIB + manual, checkout `main`, pnpm dari `packageManager`, Node dari `.node-version`, `pnpm install --frozen-lockfile`, `pnpm build` dengan `GITHUB_TOKEN` bawaan workflow (Changelog), lalu `cloudflare/wrangler-action@v3` `deploy`. `concurrency` mencegah dua deploy jalan bersamaan. Mekanismenya dicatat di ADR 0004.
+- Run manual pertama gagal di langkah deploy karena secret Cloudflare belum ada; setelah Naufal memasang `CLOUDFLARE_API_TOKEN` dan `CLOUDFLARE_ACCOUNT_ID`, rerun sukses (31 detik) dan Changelog di situs live terisi commit repo ini.
 - Redeploy dari push `9de3507` terverifikasi: canonical dan sitemap live memakai `portfolio.foxizen1710.workers.dev`.
 
 ### 2026-11-08: Deploy pertama ke Cloudflare

@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T00:00:00Z",
+  "title": "Design System: Naufal Rizky Ananda · Portfolio v2 (Code Bridge)",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "neutral", "displayName": "Night", "canonical": "oklch(13.8% 0.006 245)", "light": "#f2f5f7", "tonalRamp": ["#0a0b0c", "#222426", "#3d4043", "#5b5e61", "#7a7e81", "#9c9fa2", "#c2c4c6", "#eeeeef"] },
+      "surface": { "role": "neutral", "displayName": "Graphite Surface", "canonical": "oklch(19.0% 0.005 248)", "light": "#ffffff", "tonalRamp": ["#0a0b0c", "#222426", "#3e4042", "#5b5e60", "#7b7d80", "#9c9fa1", "#c3c4c6", "#eeeeef"] },
+      "wash": { "role": "neutral", "displayName": "Wash", "canonical": "oklch(21.5% 0.008 240)", "light": "#e1e7eb", "tonalRamp": ["#0a0b0d", "#212527", "#3c4044", "#595e62", "#797e82", "#9a9fa3", "#c1c4c7", "#edeff0"] },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "oklch(26.3% 0.016 240)", "light": "#c9d3d9", "tonalRamp": ["#080c0e", "#1e252a", "#384148", "#565f66", "#757f86", "#96a0a7", "#bfc5ca", "#eceff1"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(94.6% 0.008 241)", "light": "#0e1214", "tonalRamp": ["#0a0b0d", "#212427", "#3c4043", "#5a5e62", "#797e81", "#9b9fa3", "#c2c4c7", "#edeff0"] },
+      "muted": { "role": "neutral", "displayName": "Muted Slate", "canonical": "oklch(74.8% 0.025 236)", "light": "#4a5862", "tonalRamp": ["#070c10", "#1a262d", "#33424b", "#51606a", "#70808a", "#91a1ab", "#bcc6cc", "#ebeff2"] },
+      "subtle": { "role": "neutral", "displayName": "Subtle Slate", "canonical": "oklch(57.1% 0.023 238)", "light": "#66737c", "tonalRamp": ["#070c0f", "#1c252c", "#35424b", "#526069", "#717f8a", "#93a1ab", "#bdc5cc", "#ebeff2"] },
+      "action": { "role": "secondary", "displayName": "Action Blue", "canonical": "oklch(72.4% 0.136 228)", "light": "#0a6e9f", "tonalRamp": ["#000e20", "#002a4e", "#004977", "#00699a", "#008bbd", "#20adde", "#8dcfed", "#d8f4ff"] },
+      "trail": { "role": "primary", "displayName": "Trail Blue", "canonical": "oklch(54.9% 0.127 241)", "light": "#0a78b4", "tonalRamp": ["#000c22", "#002651", "#00437c", "#00639e", "#2285c2", "#50a7e3", "#9acbf0", "#ddf2ff"] },
+      "trail-bright": { "role": "primary", "displayName": "Signal Blue", "canonical": "oklch(72.4% 0.136 228)", "light": "#1fb5e9", "tonalRamp": ["#000e20", "#002a4e", "#004977", "#00699a", "#008bbd", "#20adde", "#8dcfed", "#d8f4ff"] },
+      "live": { "role": "tertiary", "displayName": "Live Green", "canonical": "oklch(74.8% 0.167 153)", "light": "#3dcb7a", "tonalRamp": ["#001300", "#003400", "#005605", "#00762b", "#00984b", "#31ba6e", "#92d7a7", "#daf7e2"] },
+      "on-field": { "role": "neutral", "displayName": "On-field White", "canonical": "oklch(100% 0 0)", "light": "#ffffff", "tonalRamp": ["#0b0b0b", "#242424", "#404040", "#5d5d5d", "#7d7d7d", "#9e9e9e", "#c4c4c4", "#eeeeee"] },
+      "field-mist": { "role": "neutral", "displayName": "Field Mist", "canonical": "oklch(96.6% 0.015 228)", "light": "#eaf6fc", "tonalRamp": ["#080c0e", "#1e2529", "#384146", "#555f64", "#747f84", "#96a0a6", "#bfc5c9", "#eceff0"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Home headline on the trail-blue field; 24px mobile, 34px desktop." },
+      "headline": { "displayName": "Headline", "purpose": "Project and Build Log page titles; 32px mobile, 44px desktop. Error page runs 36/56px." },
+      "name": { "displayName": "Name", "purpose": "The name beside the grayscale avatar." },
+      "title": { "displayName": "Title", "purpose": "Project rows (18/21px); Build Log rows 22px." },
+      "lead": { "displayName": "Lead", "purpose": "First About paragraph and the Contact sentence, in ink." },
+      "body": { "displayName": "Body", "purpose": "Summaries and About text in muted; 16px mobile, 17px desktop." },
+      "prose": { "displayName": "Prose", "purpose": "Detail-page Markdown, max 44rem." },
+      "label": { "displayName": "Label", "purpose": "Numbered section headings, uppercase." },
+      "chip": { "displayName": "Chip", "purpose": "Tech chips." },
+      "nav": { "displayName": "Nav", "purpose": "Scrollspy and section index items, uppercase; active 600." },
+      "caption": { "displayName": "Caption", "purpose": "Dates, year ticks, figure captions, uppercase, subtle." }
+    },
+    "themes": {
+      "default": "dark",
+      "lightSelector": ":root[data-theme='light']",
+      "invariant": "trail, trail-bright, on-field, field-mist and live do not change between themes."
+    },
+    "shadows": [
+      { "name": "straddle-lift", "value": "0 2px 6px rgb(0 0 0 / 0.2), 0 12px 32px rgb(0 0 0 / 0.25)", "purpose": "Status card only, where it crosses the field's edge." }
+    ],
+    "focus": [
+      { "name": "focus-ring", "value": "outline: 2px solid var(--color-action); outline-offset: 3px", "purpose": "Global :focus-visible ring." }
+    ],
+    "motion": [
+      { "name": "trail-on", "value": "all 300ms (Tailwind default ease)", "purpose": "Scrollspy trail growing to its active length." },
+      { "name": "hover-colour", "value": "color/border/text-decoration-color 200ms", "purpose": "Link, row title, and outline-button hover." },
+      { "name": "trail-draw", "value": "scaleX(0 -> 1), linear, animation-timeline: view(), animation-range: entry 10% cover 35%", "purpose": "Experience trails draw on scroll; only under @supports and prefers-reduced-motion: no-preference, otherwise fully drawn." },
+      { "name": "trail-gradient", "value": "linear-gradient(90deg, rgb(10 120 180 / 0), var(--color-trail) 25%, var(--color-trail-bright))", "purpose": "Experience trail fill; scrollspy markers use the two-stop version without the 25% trail stop." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "glyph-wide", "value": "1320px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Status Card",
+      "kind": "card",
+      "refersTo": "status-card",
+      "description": "The only card: stack sentence with inline chips, availability, and contact links; straddles the field's edge.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-copy\">I work mostly with <span class=\"ds-chip\">TypeScript</span> and <span class=\"ds-chip\">Next.js</span>.</p><hr class=\"ds-card-rule\"><p class=\"ds-card-status\"><span class=\"ds-dot\"></span>Open to full-time and remote roles. <a class=\"ds-link\" href=\"#\">Get in touch</a></p><p class=\"ds-card-links\"><a class=\"ds-link\" href=\"#\">GitHub</a><a class=\"ds-link\" href=\"#\">LinkedIn</a><a class=\"ds-link\" href=\"#\">Email</a></p></div>",
+      "css": ".ds-card { background: var(--color-surface, #121416); border: 1px solid var(--color-line, #1e262c); border-radius: 8px; padding: 24px; box-shadow: 0 2px 6px rgb(0 0 0 / 0.2), 0 12px 32px rgb(0 0 0 / 0.25); max-width: 30rem; font-family: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif; } .ds-card-copy { margin: 0; color: var(--color-muted, #9fb0bb); font-size: 1.0625rem; line-height: 2; } .ds-card-rule { border: 0; border-top: 1px solid var(--color-line, #1e262c); margin: 20px 0; } .ds-card-status { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; color: var(--color-ink, #e9eef2); font-size: 0.9375rem; } .ds-dot { width: 8px; height: 8px; border-radius: 9999px; background: var(--color-live, #3dcb7a); } .ds-card-links { margin: 12px 0 0; display: flex; gap: 24px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.875rem; font-weight: 500; } .ds-chip { display: inline-flex; align-items: center; border: 1px solid var(--color-line, #1e262c); background: var(--color-wash, #161a1d); border-radius: 4px; padding: 0.12em 0.55em; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 500; line-height: 1.45; color: var(--color-ink, #e9eef2); } .ds-link { color: var(--color-action, #1fb5e9); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em; } .ds-link:hover { text-decoration-thickness: 2px; } .ds-link:focus-visible { outline: 2px solid var(--color-action, #1fb5e9); outline-offset: 3px; }"
+    },
+    {
+      "name": "Tech Chip",
+      "kind": "chip",
+      "refersTo": "tech-chip",
+      "description": "Static mono chip with an action-blue brand logo; inline in sentences or wrapped under project rows.",
+      "html": "<span class=\"ds-chip\"><svg viewBox=\"0 0 24 24\" class=\"ds-chip-logo\" aria-hidden=\"true\"><path d=\"M3 3h18v18H3z\"/></svg>TypeScript</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.45em; white-space: nowrap; border: 1px solid var(--color-line, #1e262c); background: var(--color-wash, #161a1d); border-radius: 4px; padding: 0.12em 0.55em; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 500; line-height: 1.45; color: var(--color-ink, #e9eef2); } .ds-chip-logo { width: 0.92em; height: 0.92em; fill: var(--color-action, #1fb5e9); flex-shrink: 0; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Download CV: hairline outline, ink text, border turns action blue on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 4v11m-5-5 5 5 5-5M5 20h14\"/></svg>Download CV</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--color-line, #1e262c); border-radius: 4px; padding: 8px 16px; font-family: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--color-ink, #e9eef2); text-decoration: none; transition: border-color 200ms; } .ds-btn-outline:hover { border-color: var(--color-action, #1fb5e9); } .ds-btn-outline:focus-visible { outline: 2px solid var(--color-action, #1fb5e9); outline-offset: 3px; }"
+    },
+    {
+      "name": "Theme Toggle on Field",
+      "kind": "button",
+      "refersTo": "button-outline-on-field",
+      "description": "36px square toggle on the trail-blue field; white/40% border, solid white on hover.",
+      "html": "<div class=\"ds-field-sample\"><button type=\"button\" class=\"ds-toggle\" aria-label=\"Switch to light theme\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z\"/></svg></button></div>",
+      "css": ".ds-field-sample { background: var(--color-trail, #0a78b4); padding: 24px; display: inline-block; } .ds-toggle { display: grid; place-items: center; width: 36px; height: 36px; background: transparent; border: 1px solid rgb(255 255 255 / 0.4); border-radius: 4px; color: #fff; cursor: pointer; transition: border-color 200ms; } .ds-toggle:hover { border-color: #fff; } .ds-toggle:focus-visible { outline: 2px solid var(--color-action, #1fb5e9); outline-offset: 3px; }"
+    },
+    {
+      "name": "Scrollspy Nav",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Mono section list; the current item carries the gradient light trail.",
+      "html": "<ul class=\"ds-nav\"><li><a href=\"#\" class=\"ds-nav-item is-on\" aria-current=\"true\"><span class=\"ds-trail\"></span><span>About</span></a></li><li><a href=\"#\" class=\"ds-nav-item\"><span class=\"ds-trail\"></span><span>Projects</span></a></li><li><a href=\"#\" class=\"ds-nav-item\"><span class=\"ds-trail\"></span><span>Experience</span></a></li></ul>",
+      "css": ".ds-nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; } .ds-nav-item { display: flex; align-items: center; gap: 16px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-subtle, #6c7a84); text-decoration: none; transition: color 150ms; } .ds-trail { display: block; width: 1.75rem; height: 1px; background: var(--color-subtle, #6c7a84); transition: all 300ms; } .ds-nav-item:hover { color: var(--color-ink, #e9eef2); } .ds-nav-item:hover .ds-trail { width: 3rem; background: var(--color-muted, #9fb0bb); } .ds-nav-item.is-on { color: var(--color-ink, #e9eef2); font-weight: 600; } .ds-nav-item.is-on .ds-trail { width: 4rem; height: 3px; border-radius: 2px; background: linear-gradient(90deg, rgb(10 120 180 / 0), var(--color-trail-bright, #1fb5e9)); } .ds-nav-item:focus-visible { outline: 2px solid var(--color-action, #1fb5e9); outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "Two-digit action-blue numeral plus an uppercase mono label.",
+      "html": "<h2 class=\"ds-heading\"><span class=\"ds-heading-index\">01</span>About</h2>",
+      "css": ".ds-heading { display: flex; align-items: center; gap: 14px; margin: 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-ink, #e9eef2); } .ds-heading-index { color: var(--color-action, #1fb5e9); }"
+    },
+    {
+      "name": "Experience Trail",
+      "kind": "custom",
+      "description": "Role row with a time-positioned gradient trail over a hairline baseline; current roles end in an ink cursor.",
+      "html": "<div class=\"ds-exp\"><h3 class=\"ds-exp-title\">Fullstack Developer</h3><p class=\"ds-exp-org\">Company</p><div class=\"ds-exp-track\"><span class=\"ds-exp-base\"></span><span class=\"ds-exp-trail\"></span><span class=\"ds-exp-now\"></span></div></div>",
+      "css": ".ds-exp { border-top: 1px solid var(--color-line, #1e262c); border-bottom: 1px solid var(--color-line, #1e262c); padding: 20px 0; display: grid; gap: 12px; } .ds-exp-title { margin: 0; font-family: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.1875rem; font-weight: 500; color: var(--color-ink, #e9eef2); } .ds-exp-org { margin: 4px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8125rem; color: var(--color-muted, #9fb0bb); } .ds-exp-track { position: relative; height: 24px; } .ds-exp-base { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-line, #1e262c); } .ds-exp-trail { position: absolute; left: 40%; width: 60%; top: calc(50% - 2.5px); height: 5px; border-radius: 9999px; background: linear-gradient(90deg, rgb(10 120 180 / 0), var(--color-trail, #0a78b4) 25%, var(--color-trail-bright, #1fb5e9)); } .ds-exp-now { position: absolute; right: 0; top: calc(50% - 6.5px); width: 2px; height: 13px; background: var(--color-ink, #e9eef2); }"
+    },
+    {
+      "name": "Color Field with Pixel Glyphs",
+      "kind": "custom",
+      "refersTo": "color-field",
+      "description": "The one trail-blue field: white Silkscreen headline and a faint pixel-glyph scatter (12% on desktop).",
+      "html": "<div class=\"ds-field\"><div class=\"ds-glyphs\" aria-hidden=\"true\"><svg viewBox=\"0 0 8 8\" shape-rendering=\"crispEdges\" style=\"left:64%;top:5%\"><path d=\"M1 0h2v1H1zM5 0h2v1H5zM0 1h8v3H0zM1 4h6v1H1zM2 5h4v1H2zM3 6h2v1H3z\"/></svg><svg viewBox=\"0 0 8 8\" shape-rendering=\"crispEdges\" style=\"left:77%;top:55%\"><path d=\"M3 0h1v2H3zM1 2h1v1H1zM3 2h1v1H3zM5 2h1v1H5zM2 3h3v1H2zM0 4h7v1H0zM2 5h3v1H2zM1 6h1v1H1zM3 6h1v1H3zM5 6h1v1H5zM3 7h1v1H3z\"/></svg><svg viewBox=\"0 0 8 8\" shape-rendering=\"crispEdges\" style=\"left:4%;top:75%;width:24px;height:24px\"><path d=\"M3 0h2v2H3zM0 2h8v2H0zM3 4h2v2H3z\"/></svg></div><h1 class=\"ds-field-headline\">I build full-stack web apps, from database to UI.</h1></div>",
+      "css": ".ds-field { position: relative; overflow: hidden; background: var(--color-trail, #0a78b4); padding: 48px; min-height: 16rem; } .ds-glyphs { position: absolute; inset: 0; opacity: 0.12; pointer-events: none; } .ds-glyphs svg { position: absolute; width: 32px; height: 32px; fill: #fff; } .ds-field-headline { position: relative; margin: 0; max-width: 18em; font-family: 'Silkscreen', 'IBM Plex Mono', monospace; font-weight: 400; font-synthesis: none; font-size: 2.125rem; line-height: 1.2; color: #fff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Code Bridge",
+    "overview": "The site reads like a small, honest piece of software rather than a brochure. Every page has one committed field of trail blue carrying white pixel glyphs (heart, arrow, plus, star) and a Silkscreen headline; everything after it is plain data on a near-black night ground, labelled in mono and separated by hairlines. The pixel layer is the only ornament, and it stays faint: a 12% glyph scatter on the desktop field, three small edge glyphs on mobile.\n\nDensity is calm and editorial. Home is a two-column bridge on desktop: a sticky identity column on the left (field, status card, scrollspy nav, Download CV) and a scrolling column of numbered sections on the right. Detail pages swap the field for a hairline top bar and a pixel-set title, with a sticky section index on the left. Motion is one gesture repeated: a gradient light trail that marks where you are (scrollspy) or how long something lasted (Experience), drawn in CSS with no animation library.\n\nThe palette is binding and comes from Naufal's Arknights-inspired GitHub profile: black and blue, used as colour and mood only. No official game art, logos, or other Hypergryph assets, and no heavy decoration; an ornate \"operator file\" treatment was rejected before.",
+    "keyCharacteristics": [
+      "One trail-blue field per page, identical in dark and light themes, with white text and glyphs on it.",
+      "Three faces with fixed jobs: Silkscreen for identity and titles, Instrument Sans for reading, IBM Plex Mono for data.",
+      "Action blue marks what you can click.",
+      "Hairline structure, flat surfaces, a single lifted card.",
+      "The light trail is the signature interaction, done in CSS (scroll-driven where supported).",
+      "Pixel SVGs for arrows and glyphs, rendered with crisp edges; never Unicode arrows."
+    ],
+    "rules": [
+      { "name": "The Clickable Blue Rule", "body": "Action blue means \"you can click this\". The build's only non-interactive uses are the two-digit section numerals and the tech-chip logos, both carried from the approved frames as small marks; do not extend action blue to any other static text, fill, or decoration.", "section": "colors" },
+      { "name": "The One Field Rule", "body": "Trail blue appears as one committed field per surface (desktop field 27.5rem tall, mobile header, error page, OG card). It is never tinted, gradient-filled, or repeated as section backgrounds, and it does not change with the theme.", "section": "colors" },
+      { "name": "The Three Faces Rule", "body": "Silkscreen, Instrument Sans, IBM Plex Mono, and nothing else. Each keeps its job: pixel for name, headline, and page titles; sans for reading; mono for labels, dates, chips, numbered headings, nav, and the changelog.", "section": "typography" },
+      { "name": "The Pixel Restraint Rule", "body": "Silkscreen is set at 400 with `font-synthesis: none`, never faux-bolded or letter-spaced, and never used for reading text or labels.", "section": "typography" },
+      { "name": "The Single Lift Rule", "body": "Only the card that bridges the field and the ground casts a shadow. Everything else is separated by hairlines or the field itself.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep one trail-blue field per surface with white text on it, the same in dark and light themes.",
+      "Do reserve action blue for links, controls, focus, and hover states (plus the section numerals and chip logos already in the build).",
+      "Do set titles and identity in Silkscreen 400 only, reading text in Instrument Sans, and every date, label, chip, and nav item in IBM Plex Mono.",
+      "Do separate list items with 1px `line` hairlines and keep them as full-width rows.",
+      "Do use the pixel arrow (PixelArrow or the prose bullet mask) for every arrow, with `shape-rendering: crispEdges`.",
+      "Do mark position and duration with the gradient light trail, in CSS, honouring `prefers-reduced-motion`.",
+      "Do keep glyphs off text: hide or move a glyph rather than let it sit on the headline."
+    ],
+    "donts": [
+      "Don't use official Arknights art, logos, or other Hypergryph assets, or ornate \"operator file\" decoration.",
+      "Don't add a fourth typeface, faux-bold Silkscreen, or use Silkscreen for body copy or labels.",
+      "Don't put Projects, Experience, Build Logs, or Changelog entries in cards; the status card is the only card.",
+      "Don't add shadows beyond the status card's straddle lift.",
+      "Don't use Unicode arrows or icon-font glyphs for direction.",
+      "Don't add a JavaScript animation library; motion stays in CSS within the 50 KB gzip JS budget.",
+      "Don't use live green for anything other than availability."
+    ]
+  }
+}

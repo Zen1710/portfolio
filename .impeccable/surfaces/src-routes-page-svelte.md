@@ -23,7 +23,7 @@ STORY: The Recruiter sees name, headline, stack, availability, and contact in th
 
 FIRST VIEWPORT: Desktop: left column 40/82 of the width, sticky full height; blue field 27.5rem tall behind the identity row (photo, pixel name, square theme toggle) and the 34px pixel headline; the status card (tagline with mono tech chips, availability + Get in touch, GitHub/LinkedIn/Email) straddles the field's edge; scrollspy nav below; Download CV at the bottom. Right column starts with "01 ABOUT". Mobile: blue header with identity and headline, then the status card, then sections; no nav.
 
-FORM: Code Bridge (user-pinned; the decision-page roll and its Long Exposure pick are superseded). seed: none (unavailable). Signature interaction: the scrollspy marks the current section with a long light trail; the Experience trails draw as they enter the viewport (scroll-driven CSS, no JS).
+FORM: Code Bridge (user-pinned by Naufal on 2026-11-08, superseding the Long Exposure direction the decision round assigned). seed:c4a296c068d6a63e (the direction roll that produced Long Exposure; Code Bridge itself was not rolled). Signature interaction: the scrollspy marks the current section with a long light trail, on the home nav and on each detail page's section index; the Experience trails draw as they enter the viewport (scroll-driven CSS, no JS).
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 

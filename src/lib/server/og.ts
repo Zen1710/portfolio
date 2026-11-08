@@ -32,7 +32,7 @@ export async function renderOgImage(card: { kicker: string; title: string; bylin
 	const tree = h('div', { display: 'flex', width: WIDTH, height: HEIGHT, position: 'relative', background: '#0A78B4' }, [
 		...decor.map(([g, x, y, size]) => ({
 			type: 'img',
-			props: { src: svgUri(glyphs[g]), width: size, height: size, style: { position: 'absolute', left: x, top: y } }
+			props: { src: svgUri(glyphs[g]), width: size, height: size, style: { position: 'absolute', left: x, top: y, opacity: 0.12 } }
 		})),
 		h('div', { position: 'absolute', left: 64, right: 220, bottom: 64, display: 'flex', flexDirection: 'column', gap: 22 }, [
 			h('div', { fontFamily: 'IBM Plex Mono', fontSize: 16, letterSpacing: 3, color: '#EAF6FC', textTransform: 'uppercase' }, card.kicker),

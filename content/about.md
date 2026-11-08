@@ -6,4 +6,4 @@ I'm a full-stack developer who likes owning a feature from end to end: shaping t
 
 Most of my projects are built with Next.js and TypeScript. I also build frontends in React, Vue, and SvelteKit, and backends with Node.js and Express, Go, and PostgreSQL.
 
-I'm looking for a full-time or remote role where I can ship real features with a team and keep growing as an engineer. This site is my first public project, and the decisions behind it are written up in its repository.
+I'm looking for a full-time or remote role where I can ship real features with a team and keep growing as an engineer. This site is open source, and the decisions behind it are written up in its repository.
