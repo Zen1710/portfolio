@@ -12,7 +12,7 @@ export const profile: Profile = {
   availability: "Open to full-time and remote roles.",
   photo: "/photo.jpg",
   siteUrl: "https://portfolio.naufalrizkyananda.workers.dev",
-  sourceRepo: "",
+  sourceRepo: "https://github.com/Zen1710/portfolio",
   links: {
     github: "https://github.com/Zen1710",
     linkedin: "https://www.linkedin.com/in/naufalrizkyananda",
