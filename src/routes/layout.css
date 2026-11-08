@@ -26,7 +26,8 @@
 
 :root[data-theme='light'] {
 	--color-night: #f2f5f7;
-	--color-surface: #e8edf0;
+	/* White cards lift off the pale ground in light mode (Code Bridge light frames). */
+	--color-surface: #ffffff;
 	--color-wash: #e1e7eb;
 	--color-line: #c9d3d9;
 	--color-ink: #0e1214;

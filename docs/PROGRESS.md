@@ -31,6 +31,12 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Log
 
+### 2026-11-08: Versi light Code Bridge
+
+- Digambar di Pen: "Desktop / Home — Code Bridge (light)", "Mobile / Home — Code Bridge (light)", "Desktop / Project detail — Code Bridge (light)". Bidang biru, teks putih di atasnya, dan dekor pixel tetap sama; latar, garis, dan teks memakai token light.
+- Satu perubahan token: `surface` light jadi `#FFFFFF` supaya kartu status terangkat dari latar `#F2F5F7`.
+- Dicek di browser: toggle ke light di beranda desktop sesuai desain.
+
 ### 2026-11-08: Ganti ke desain Code Bridge
 
 - Naufal memilih desain "Code Bridge" buatan Nova di Pen, dengan layout seperti v1 (kolom kiri sticky + kanan scroll). Font diringkas jadi 3: Silkscreen (headline, judul halaman, nama), Instrument Sans (teks), IBM Plex Mono (label, tanggal, chip, judul section bernomor). Archivo dan foto Long Exposure dihapus, `sharp` tidak dipakai lagi.

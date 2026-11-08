@@ -29,4 +29,4 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## Unresolved
 
-- Light theme rendition of Code Bridge is not drawn yet; code falls back to the light tokens with the blue field unchanged.
+- Light theme: drawn in Pen (Code Bridge light frames); same blue field, light tokens, white status card.
