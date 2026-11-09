@@ -32,6 +32,11 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Log
 
+### 2026-11-09: Publish Project Portfolio, sembunyikan Smartphone Catalog
+
+- `portfolio-site` di-publish dengan judul "Portfolio" dan cover screenshot beranda (`static/projects/portfolio-site.png`). Bagian placeholder "What I would do next" dihapus.
+- `phone-catalogue` dijadikan Draft lagi: hilang dari situs live, masih tampil di `pnpm dev`.
+
 ### 2026-11-08: Ganti subdomain workers.dev
 
 - Naufal mengganti subdomain akun Cloudflare dari `foxizen1710` ke `naufalrizkyananda`. URL situs sekarang `https://portfolio.naufalrizkyananda.workers.dev`; URL lama tidak aktif lagi.
