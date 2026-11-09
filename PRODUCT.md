@@ -42,7 +42,8 @@ Naufal builds full-stack web apps end to end, from database to UI. Primary stack
 ## Brand Commitments
 
 - Name shown: Naufal Rizky Ananda. Role: Fullstack Developer.
-- Headline: "I build full-stack web apps, from database to UI."
+- Headline: "Hi, welcome to my corner of the internet." (changed 2026-11-09 to a simple greeting).
+- Description (meta description and home OG image): "I build full-stack web apps, from database to UI."
 - Stack line: "I work mostly with TypeScript and Next.js, plus Vue on the frontend and Node.js, Go, and PostgreSQL on the backend."
 - Availability: open to full-time and remote roles.
 - Palette is binding: Arknights-inspired black and blue, matching the GitHub profile (black `#121416`, deep blue `#0A78B4` for fills, bright blue `#1FB5E9` for accents on black). Used as colour and mood only: no official game art, logos, or other Hypergryph assets, and no heavy decoration (an ornate "operator file" treatment was rejected before).

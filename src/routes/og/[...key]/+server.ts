@@ -10,7 +10,7 @@ const byline = `${site.profile.name} · ${site.profile.role}`;
 /** Every card the site links to, keyed by its path under /og/. */
 function cards() {
 	const list = new Map<string, { kicker: string; title: string; byline: string }>();
-	list.set('home.png', { kicker: site.profile.role, title: site.profile.headline, byline: site.profile.name });
+	list.set('home.png', { kicker: site.profile.role, title: site.profile.description, byline: site.profile.name });
 	for (const p of getProjects()) list.set(`projects/${p.slug}.png`, { kicker: `Project · ${formatMonth(p.date)}`, title: p.title, byline });
 	for (const l of getBuildLogs()) list.set(`build-logs/${l.slug}.png`, { kicker: `Build Log · ${formatDate(l.date)}`, title: l.title, byline });
 	return list;

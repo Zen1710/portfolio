@@ -28,7 +28,7 @@
 	const logDate = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
 </script>
 
-<Seo title="{profile.name} · {profile.role}" description={profile.headline} image="/og/home.png" siteUrl={profile.siteUrl} />
+<Seo title="{profile.name} · {profile.role}" description={profile.description} image="/og/home.png" siteUrl={profile.siteUrl} />
 
 <div class="mx-auto max-w-[90rem] lg:grid lg:grid-cols-[minmax(0,40fr)_minmax(0,42fr)] lg:gap-16 lg:pr-16">
 	<SidePanel {profile} stack={data.stack} hasCv={data.hasCv} nav={sections} />

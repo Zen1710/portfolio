@@ -3,7 +3,8 @@ import type { Profile } from "#lib/content/types.ts";
 export const profile: Profile = {
   name: "Naufal Rizky Ananda",
   role: "Fullstack Developer",
-  headline: "I build full-stack web apps, from database to UI.",
+  headline: "Hi, welcome to my corner of the internet.",
+  description: "I build full-stack web apps, from database to UI.",
   stack: {
     mostly: ["typescript", "nextjs"],
     frontend: ["react", "vue", "svelte"],

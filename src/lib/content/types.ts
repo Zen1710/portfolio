@@ -46,7 +46,10 @@ export type Experience = {
 export type Profile = {
 	name: string;
 	role: string;
+	/** The big sentence at the top of the side panel. */
 	headline: string;
+	/** What the site says about Naufal in search results and link previews (meta description, home OG image). */
+	description: string;
 	stack: { mostly: string[]; frontend: string[]; backend: string[] };
 	availability: string;
 	/** Kept for parity with v1; v2 imports the photo from src/lib/assets. */

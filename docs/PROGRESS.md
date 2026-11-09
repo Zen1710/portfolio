@@ -32,6 +32,12 @@ Log pengembangan portfolio v2. Entri terbaru di atas. Bagian **Status** dan **La
 
 ## Log
 
+### 2026-11-09: Headline jadi sapaan
+
+- Headline di panel kiri diganti jadi "Hi, welcome to my corner of the internet."
+- Kalimat lama "I build full-stack web apps, from database to UI." dipindah ke field baru `description` di `content/profile.ts`, dipakai untuk meta description dan OG image beranda, supaya preview link tetap menyebut peran.
+- Dicek di 1440px, 1280px, dan mobile: tidak ada teks yang tertimpa dekorasi. Lighthouse mobile performance 97.
+
 ### 2026-11-09: Publish Project Portfolio, sembunyikan Smartphone Catalog
 
 - `portfolio-site` di-publish dengan judul "Portfolio" dan cover screenshot beranda (`static/projects/portfolio-site.png`). Bagian placeholder "What I would do next" dihapus.
